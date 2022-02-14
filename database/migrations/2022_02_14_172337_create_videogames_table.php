@@ -15,15 +15,13 @@ class CreateVideogamesTable extends Migration
     {
         Schema::create('videogames', function (Blueprint $table) {
             $table->id();
+            $table->string('titolo');
+            $table->string('sottotitolo');
+            $table->tinyInteger('rating');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('videogames');
