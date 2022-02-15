@@ -6,11 +6,15 @@
                 <th>titolo</th>
                 <th>sottotitolo</th>
                 <th>rating</th>
+                <th v-if="user">Action</th>
             </tr>
             <tr v-for="videogame in videogames" :key="videogame.id">
                 <td>{{videogame.titolo}}</td>
                 <td>{{videogame.sottotitolo}}</td>
                 <td>{{videogame.rating}}</td>
+                <td v-if="user">
+                    <a :href="`/api/videogame/delete/${videogame.id}`" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         </table>
     </div>
@@ -21,6 +25,9 @@ export default {
         return{
             videogames: []
         };
+    },
+    props:{
+        user: String
     },
     mounted() {
         axios.get('/api/videogames/list')
