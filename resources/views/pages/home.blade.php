@@ -1,4 +1,7 @@
 @extends('layouts.main-layout')
 @section('content')
-    hello
+<h1>hello</h1>
+<Videogames-component></videogames-component>
+
 @endsection
+
